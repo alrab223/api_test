@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday API Example</title>
+</head>
+<body>
+    <h1>誕生日情報</h1>
+    <div id="birthdays"></div>
+
+    <script>
+        async function fetchBirthdays() {
+            // GitHub PagesでホストされているJSONファイルのURLに置き換えてください
+            const url = 'https://alrab223.github.io/api_test/birthday.json';
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log(data); // コンソールでデータを確認
+
+                // 結果をHTMLに表示する例
+                document.getElementById('birthdays').innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('エラーが発生しました:', error);
+            }
+        }
+
+        fetchBirthdays();
+    </script>
+</body>
+</html>
